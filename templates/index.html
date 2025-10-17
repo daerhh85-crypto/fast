@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أداة التحميل السريع</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* الخطوط والألوان الأساسية للجسم */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a202c; /* خلفية داكنة مشابهة للصورة الثانية */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #e2e8f0; /* لون نص فاتح */
+            direction: rtl; /* لجعل التنسيق من اليمين لليسار بشكل كامل */
+        }
+        /* حاوية المحتوى الرئيسية */
+        .container {
+            background: #2d3748; /* خلفية أغمق قليلاً للحاوية */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        /* العنوان الرئيسي */
+        h1 {
+            color: #48bb78; /* لون أخضر مميز */
+            margin-bottom: 10px;
+            font-size: 2.2em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        /* وصف المنصات المدعومة */
+        p.platforms {
+            color: #cbd5e0;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            font-weight: normal;
+        }
+
+        /* حاوية الأيقونات */
+        .social-icons {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 25px; /* مسافة أكبر بين الأيقونات */
+        }
+        .social-icons a {
+            color: #e2e8f0; /* لون الأيقونات */
+            font-size: 2.5em; /* حجم أكبر للأيقونات */
+            transition: color 0.3s ease;
+            text-decoration: none; /* إزالة خط التسطير */
+        }
+        .social-icons a:hover {
+            color: #48bb78; /* لون عند التحويم */
+        }
+
+        /* نموذج الإدخال */
+        form {
+            display: flex;
+            flex-direction: column; /* جعل العناصر تتكدس رأسياً */
+            gap: 20px; /* مسافة بين حقل الإدخال والزر */
+        }
+        /* حقل الرابط */
+        input[type="url"] {
+            background-color: #4a5568; /* خلفية أغمق لحقل الإدخال */
+            color: #e2e8f0; /* لون النص في حقل الإدخال */
+            padding: 15px 20px;
+            border: 2px solid #4a5568;
+            border-radius: 8px;
+            font-size: 1.1em;
+            box-sizing: border-box;
+            width: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            text-align: right; /* محاذاة النص لليمين */
+        }
+        input[type="url"]::placeholder {
+            color: #a0aec0; /* لون النص التوجيهي */
+        }
+        input[type="url"]:focus {
+            border-color: #48bb78; /* لون حدود عند التركيز */
+            box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.5);
+            outline: none;
+        }
+        /* زر التحميل */
+        button {
+            padding: 15px 25px;
+            background-color: #48bb78; /* لون أخضر للزر */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.1s;
+            width: 100%; /* جعل الزر يأخذ عرض الحاوية */
+        }
+        button:hover {
+            background-color: #38a169; /* لون أغمق عند التحويم */
+        }
+        button:active {
+            transform: scale(0.99);
+        }
+        /* رسالة الخطأ */
+        .error-message {
+            color: #f56565; /* لون أحمر للخطأ */
+            padding: 15px;
+            background-color: #fed7d7; /* خلفية فاتحة للخطأ */
+            border: 1px solid #fbb6ce;
+            border-radius: 8px;
+            margin-top: 25px;
+            text-align: right;
+            font-weight: bold;
+            direction: rtl; /* لضمان عرض النص بالعربية بشكل صحيح */
+        }
+        /* التذييل (إذا أردت إضافته مستقبلاً) */
+        .footer {
+            margin-top: 30px;
+            color: #a0aec0;
+            font-size: 0.9em;
+        }
+        /* تعديل أيقونة تيك توك لتظهر بشكل صحيح */
+        .fab.fa-tiktok {
+            /* قد تحتاج لتعديلات خاصة إذا كانت الأيقونة لا تظهر بشكل جيد تلقائياً */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>أداة التحميل السريع</h1>
+        <p class="platforms">تيك توك • فيسبوك • إنستغرام</p>
+
+        <div class="social-icons">
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <form action="/download" method="POST">
+            <input type="url" id="url" name="url" placeholder="الصق رابط الفيديو هنا..." required>
+            <button type="submit">تحميل الفيديو</button>
+        </form>
+
+        {% if error %}
+        <div class="error-message">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+
+        <div class="footer">
+            </div>
+    </div>
+</body>
+</html>
